@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Board.gd" type="Script" id=1]
+[ext_resource path="res://scenes/TextureLine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/Peg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Crown.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 150, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 250, 10 )
+
+[node name="Board" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders"]
+build_mode = 1
+polygon = PoolVector2Array( 0, 0, 900, 0, 900, 900, 0, 900 )
+
+[node name="ObstaclesCircles" type="StaticBody2D" parent="."]
+position = Vector2( 450, 450 )
+
+[node name="ObstacleCircle" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( -350, -350 )
+shape = SubResource( 1 )
+
+[node name="Peg" type="Sprite" parent="ObstaclesCircles/ObstacleCircle"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle2" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( -250, -350 )
+shape = SubResource( 1 )
+
+[node name="Peg2" type="Sprite" parent="ObstaclesCircles/ObstacleCircle2"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle3" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( -350, -150 )
+shape = SubResource( 1 )
+
+[node name="Peg3" type="Sprite" parent="ObstaclesCircles/ObstacleCircle3"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle4" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( -350, -250 )
+shape = SubResource( 1 )
+
+[node name="Peg4" type="Sprite" parent="ObstaclesCircles/ObstacleCircle4"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle5" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( -150, -350 )
+shape = SubResource( 1 )
+
+[node name="Peg5" type="Sprite" parent="ObstaclesCircles/ObstacleCircle5"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle6" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( 150, 350 )
+shape = SubResource( 1 )
+
+[node name="Peg6" type="Sprite" parent="ObstaclesCircles/ObstacleCircle6"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle7" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( 350, 250 )
+shape = SubResource( 1 )
+
+[node name="Peg7" type="Sprite" parent="ObstaclesCircles/ObstacleCircle7"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle8" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( 350, 150 )
+shape = SubResource( 1 )
+
+[node name="Peg8" type="Sprite" parent="ObstaclesCircles/ObstacleCircle8"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle9" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( 250, 350 )
+shape = SubResource( 1 )
+
+[node name="Peg9" type="Sprite" parent="ObstaclesCircles/ObstacleCircle9"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstacleCircle10" type="CollisionShape2D" parent="ObstaclesCircles"]
+position = Vector2( 350, 350 )
+shape = SubResource( 1 )
+
+[node name="Peg10" type="Sprite" parent="ObstaclesCircles/ObstacleCircle10"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ObstaclesBlocks" type="StaticBody2D" parent="."]
+position = Vector2( 450, 450 )
+
+[node name="ObstacleBlock" type="CollisionShape2D" parent="ObstaclesBlocks"]
+position = Vector2( 200, -200 )
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="TextureLine" parent="ObstaclesBlocks/ObstacleBlock" instance=ExtResource( 2 )]
+
+[node name="ObstacleBlock2" type="CollisionShape2D" parent="ObstaclesBlocks"]
+position = Vector2( -200, 200 )
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="TextureLine" parent="ObstaclesBlocks/ObstacleBlock2" instance=ExtResource( 2 )]
+
+[node name="ObstaclesRotates" type="StaticBody2D" parent="."]
+position = Vector2( 450, 450 )
+
+[node name="ObstacleBlock" type="CollisionShape2D" parent="ObstaclesRotates"]
+shape = SubResource( 3 )
+
+[node name="TextureLine" parent="ObstaclesRotates/ObstacleBlock" instance=ExtResource( 2 )]
+length = 250.0
+size = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 450, 450 )
+current = true
+
+[node name="Crown" parent="." groups=[
+"crowned",
+] instance=ExtResource( 4 )]
+position = Vector2( 450, 240 )

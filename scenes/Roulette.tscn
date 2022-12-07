@@ -1,0 +1,436 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://images/Roulette.png" type="Texture" id=1]
+[ext_resource path="res://images/RouletteFrame.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Roulette.gd" type="Script" id=3]
+[ext_resource path="res://images/Sword.png" type="Texture" id=4]
+[ext_resource path="res://images/Shield.png" type="Texture" id=5]
+[ext_resource path="res://images/Special.png" type="Texture" id=6]
+[ext_resource path="res://images/Move.png" type="Texture" id=7]
+[ext_resource path="res://images/Circle.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 240.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 70 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Reaction"
+length = 0.9
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Circle/Circle:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.9, -0.25, 0, 0.25, 0, 1.4, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 0.9 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Circle/Circle:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.9, -0.25, 0, 0.25, 0, 1.4, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 0.9 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Circle/Circle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Circle/Circle:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Circle/Reactives/Move:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.45, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.45, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Circle/Reactives/Move:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.45, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.45, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Circle/Reactives/Move:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Circle/Reactives/Move:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Circle/Reactives/Shield:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Circle/Reactives/Shield:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Circle/Reactives/Shield:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Circle/Reactives/Shield:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Circle/Reactives/Special:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Circle/Reactives/Special:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Circle/Reactives/Special:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Circle/Reactives/Special:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Circle/Reactives/Sword:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Circle/Reactives/Sword:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Circle/Reactives/Sword:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 1.2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Circle/Reactives/Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Roulette" type="Node2D"]
+script = ExtResource( 3 )
+_color = Color( 0.00392157, 0.678431, 0.0117647, 1 )
+
+[node name="Circle" type="StaticBody2D" parent="."]
+
+[node name="Circle" type="Sprite" parent="Circle"]
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 8 )
+
+[node name="RSprite" type="Sprite" parent="Circle"]
+texture = ExtResource( 1 )
+
+[node name="RFrame" type="Sprite" parent="Circle"]
+texture = ExtResource( 2 )
+
+[node name="Icons" type="Node2D" parent="Circle"]
+
+[node name="Move" type="TextureProgress" parent="Circle/Icons"]
+modulate = Color( 1, 1, 1, 0.352941 )
+margin_left = -70.0
+margin_top = -100.0
+margin_right = 230.0
+margin_bottom = 200.0
+rect_rotation = -90.0
+rect_scale = Vector2( 0.45, 0.45 )
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 7 )
+fill_mode = 5
+tint_under = Color( 0.215686, 0.215686, 0.254902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shield" type="TextureProgress" parent="Circle/Icons"]
+modulate = Color( 1, 1, 1, 0.352941 )
+margin_left = -250.0
+margin_top = 75.0
+margin_right = 50.0
+margin_bottom = 375.0
+rect_rotation = -90.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 5 )
+fill_mode = 4
+tint_under = Color( 0.215686, 0.215686, 0.254902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sword" type="TextureProgress" parent="Circle/Icons"]
+modulate = Color( 1, 1, 1, 0.352941 )
+margin_left = 250.0
+margin_top = -75.0
+margin_right = 550.0
+margin_bottom = 225.0
+rect_rotation = 90.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 4 )
+fill_mode = 4
+tint_under = Color( 0.215686, 0.215686, 0.254902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Special" type="TextureProgress" parent="Circle/Icons"]
+modulate = Color( 1, 1, 1, 0.352941 )
+margin_left = -80.0
+margin_top = 100.0
+margin_right = 220.0
+margin_bottom = 400.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 6 )
+fill_mode = 4
+tint_under = Color( 0.215686, 0.215686, 0.254902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reactives" type="Node2D" parent="Circle"]
+
+[node name="Move" type="Sprite" parent="Circle/Reactives"]
+visible = false
+modulate = Color( 1, 1, 1, 0.0181735 )
+position = Vector2( 0, -167.5 )
+rotation = -1.5708
+scale = Vector2( 0.891822, 0.891822 )
+texture = ExtResource( 7 )
+
+[node name="Shield" type="Sprite" parent="Circle/Reactives"]
+visible = false
+position = Vector2( -170, 0 )
+rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Special" type="Sprite" parent="Circle/Reactives"]
+visible = false
+position = Vector2( -5, 175 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Sword" type="Sprite" parent="Circle/Reactives"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 175, 0 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 4 )
+
+[node name="Areas" type="Node2D" parent="Circle"]
+
+[node name="MarbleArea" type="Area2D" parent="Circle/Areas"]
+visible = false
+
+[node name="CollisionCircle2" type="CollisionShape2D" parent="Circle/Areas/MarbleArea"]
+shape = SubResource( 1 )
+
+[node name="Move" type="Area2D" parent="Circle/Areas"]
+
+[node name="MoveCol" type="CollisionPolygon2D" parent="Circle/Areas/Move"]
+polygon = PoolVector2Array( -176.644, -182.68, -127.419, -220.308, -66.6819, -245.395, 0.657349, -255.078, 64.9157, -246.275, 128.734, -220.308, 175.827, -183.777, 93.5239, -99.2732, -91.329, -98.8331, -91.329, -98.8331 )
+
+[node name="Shield" type="Area2D" parent="Circle/Areas"]
+rotation = -1.5708
+
+[node name="ShieldCol" type="CollisionPolygon2D" parent="Circle/Areas/Shield"]
+polygon = PoolVector2Array( -176.644, -182.68, -127.419, -220.308, -66.6819, -245.395, 0.657349, -255.078, 64.9157, -246.275, 128.734, -220.308, 175.827, -183.777, 93.5239, -99.2732, -91.329, -98.8331, -91.329, -98.8331 )
+
+[node name="Attack" type="Area2D" parent="Circle/Areas"]
+rotation = 1.5708
+
+[node name="AttackCol" type="CollisionPolygon2D" parent="Circle/Areas/Attack"]
+polygon = PoolVector2Array( -176.644, -182.68, -127.419, -220.308, -66.6819, -245.395, 0.657349, -255.078, 64.9157, -246.275, 128.734, -220.308, 175.827, -183.777, 93.5239, -99.2732, -91.329, -98.8331, -91.329, -98.8331 )
+
+[node name="Special" type="Area2D" parent="Circle/Areas"]
+rotation = -3.14159
+
+[node name="SpecialCol" type="CollisionPolygon2D" parent="Circle/Areas/Special"]
+polygon = PoolVector2Array( -176.644, -182.68, -127.419, -220.308, -66.6819, -245.395, 0.657349, -255.078, 64.9157, -246.275, 128.734, -220.308, 175.827, -183.777, 93.5239, -99.2732, -91.329, -98.8331, -91.329, -98.8331 )
+
+[node name="CollisionCircle" type="CollisionPolygon2D" parent="Circle"]
+visible = false
+build_mode = 1
+polygon = PoolVector2Array( -270, 0, -255, 80, -230, 140, -190, 190, -140, 230, -80, 255, 0, 270, 80, 255, 140, 230, 190, 190, 230, 140, 255, 80, 270, 0, 255, -80, 230, -140, 190, -190, 140, -230, 80, -255, 0, -270, -80, -255, -140, -230, -190, -190, -230, -135, -255, -80 )
+
+[node name="InnerColliders" type="StaticBody2D" parent="Circle"]
+visible = false
+
+[node name="InnerCollider" type="CollisionShape2D" parent="Circle/InnerColliders"]
+position = Vector2( 145, -145 )
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="InnerCollider2" type="CollisionShape2D" parent="Circle/InnerColliders"]
+position = Vector2( -145, -145 )
+rotation = -0.785398
+shape = SubResource( 2 )
+
+[node name="InnerCollider3" type="CollisionShape2D" parent="Circle/InnerColliders"]
+position = Vector2( 145, 145 )
+rotation = 2.35619
+shape = SubResource( 2 )
+
+[node name="InnerCollider4" type="CollisionShape2D" parent="Circle/InnerColliders"]
+position = Vector2( -145, 145 )
+rotation = 0.785398
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Unlock" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="RReact" type="AnimationPlayer" parent="."]
+anims/Reaction = SubResource( 3 )
+
+[node name="IconReact" type="AnimationPlayer" parent="."]
+anims/MoveReact = SubResource( 4 )
+anims/ShieldReact = SubResource( 5 )
+anims/SpecialReact = SubResource( 6 )
+anims/SwordReact = SubResource( 7 )
+[connection signal="body_exited" from="Circle/Areas/MarbleArea" to="." method="_on_MarbleArea_body_exited"]
+[connection signal="body_entered" from="Circle/Areas/Move" to="." method="_on_Move_body_entered"]
+[connection signal="body_entered" from="Circle/Areas/Shield" to="." method="_on_Shield_body_entered"]
+[connection signal="body_entered" from="Circle/Areas/Attack" to="." method="_on_Attack_body_entered"]
+[connection signal="body_entered" from="Circle/Areas/Special" to="." method="_on_Special_body_entered"]
+[connection signal="timeout" from="Unlock" to="." method="_on_Unlock_timeout"]
